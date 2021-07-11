@@ -15,6 +15,8 @@ use Inertia\Inertia;
 |
 */
 
+require __DIR__ . '/auth.php';
+
 Route::get('/', function () {
     return redirect('login');
     // return Inertia::render('Welcome', [
@@ -25,8 +27,16 @@ Route::get('/', function () {
     // ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard')->with([
+            'currentMenu' => 'Dashboard'
+        ]);
+    })->name('dashboard');
 
-require __DIR__.'/auth.php';
+    Route::get('/projects', function () {
+        return Inertia::render('Projects')->with([
+            'currentMenu' => 'Projects'
+        ]);
+    })->name('project.index');
+});

@@ -1,20 +1,39 @@
-import Authenticated from '@/Layouts/Authenticated';
-import React from 'react';
+import React from "react";
+import Button from "@material-tailwind/react/Button";
+import Authenticated from "../Layouts/Authenticated";
 
-export default function Dashboard(props) {
-    return (
-        <Authenticated
-            auth={props.auth}
-            errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
-        >
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 bg-white border-b border-gray-200">You're logged in!</div>
-                    </div>
-                </div>
+const Dashboard = (props) => {
+  return (
+    <Authenticated {...props}>
+      <div className="py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          {/* Replace with your content */}
+          <div className="py-4">
+            <div className="border-4 border-dashed border-gray-200 bg-white rounded-lg h-96">
+              <div className="text-blue-gray-200">
+                ini hasil rendering halaman dashboard
+                <Button
+                  color="lightBlue"
+                  buttonType="filled"
+                  size="regular"
+                  rounded={false}
+                  block={false}
+                  iconOnly={false}
+                  ripple="light"
+                >
+                  Button
+                </Button>
+              </div>
             </div>
-        </Authenticated>
-    );
-}
+          </div>
+          {/* End replace */}
+        </div>
+      </div>
+    </Authenticated>
+  );
+};
+
+export default Dashboard;
