@@ -6,11 +6,11 @@ import { InertiaProgress } from "@inertiajs/progress";
 const el = document.getElementById("app");
 
 render(
-    <App
-        initialPage={JSON.parse(el.dataset.page)}
-        resolveComponent={(name) => require(`./Pages/${name}.jsx`).default}
-    />,
-    el
+  <App
+    initialPage={JSON.parse(el.dataset.page)}
+    resolveComponent={(name) => require(`./Pages/${name}.jsx`).default}
+  />,
+  el
 );
 
 InertiaProgress.init({ color: "#4B5563" });
